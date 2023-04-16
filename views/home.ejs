@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Notes</title>
+</head>
+<body>
+  <h1>My Notes</h1>
+  <form method="POST" action="/note">
+    <div>
+      <label for="note">New Note:</label>
+      <input type="text" id="note" name="note" required>
+    </div>
+    <button type="submit">Save Note</button>
+  </form>
+  <h2>All Notes</h2>
+  <ul>
+    <% for (let i = 0; i < notes.length; i++) { %>
+      <li><%= notes[i] %></li>
+      <!-- <li> <%- notes[i] %> </li> *THIS LINE IS VULNERABLE TO XSS!!!* !-->
+    <% } %>
+  </ul>
+</body>
+</html>
